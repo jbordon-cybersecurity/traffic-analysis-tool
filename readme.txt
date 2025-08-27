@@ -1,76 +1,106 @@
-- PCAP Network Traffic Analyser
-This project analyses network traffic data from PCAP files. 
-It extracts and summarises traffic, including email addresses, image URLs, IP pairs, and displays traffic data with statistical thresholds.
+PCAP Network Traffic Analyzer
 
+This project analyses network traffic data from PCAP files.
+It extracts and summarises traffic, including email addresses, image URLs, IP pairs, and generates traffic visualisations with statistical thresholds.
+It also supports IP geolocation using the GeoLite2 database.
 
-Parse and Summarise Traffic Data:
-Reads PCAP files and organises traffic data by protocol.
-Summarises traffic statistics such as packet count and mean packet size.
-Extracts email addresses, image URLs, and source-destination IP pairs.
-Displays Traffic Data:
-Plots traffic trends with optional thresholds and saves the plots.
+🚀 Features
 
-Requiered:
+Parse & Summarize Traffic
 
-Python 3.8 or higher
+Reads PCAP files and organises traffic by protocol.
 
-Required Python packages:
+Summarizes traffic statistics (packet count, mean packet size).
 
+Extracts email addresses, image URLs, and source–destination IP pairs.
+
+Traffic Visualisation
+
+Plots traffic trends with optional thresholds.
+
+Saves plots as PNG files.
+
+IP Geolocation
+
+Uses MaxMind GeoLite2 database to map IPs.
+
+Exports results in .kml format for Google Earth.
+
+📦 Requirements
+
+Python 3.8+
+
+Python Packages
 dpkt
 matplotlib
+scapy
+pandas
+geoip2
 
-Install the required packages using pip:
 
-pip install dpkt matplotlib
+Install with:
 
-How to run:
+pip install -r requirements.txt
 
+▶️ Usage
 Step 1: Place Your PCAP File
-Ensure your PCAP file is in the same directory as the scripts. By default, the project looks for a file named evidence-packet-analysis.pcap. 
-If you want to use a different file, update the pcap_file variable in the main() function of pcap_analyser.py.
+
+Ensure your PCAP file is in the project directory.
+By default, the tool looks for:
+
+evidence-packet-analysis.pcap
+
+
+If using a different file, update the PCAP_FILE variable in pcap_analyser.py.
 
 Step 2: Run the Main Script
-Execute the pcap_analyser.py script to analyze your PCAP file and extract traffic data.
+python pcap_analyser.py
 
-Outputs Traffic Summary:
+📊 Outputs
 
-Summarises traffic data by protocol, including packet count, mean size, and timestamps.
+Traffic Summary:
+By protocol (packet count, mean size, timestamps).
 
 Extracted Information:
+Email addresses, image URLs, and source–destination IP pairs (printed in terminal).
 
-- Displays email addresses, image URLs, and source-destination IP pairs in the terminal.
+Traffic Plots:
+PNG file: all_protocols_traffic_plot.png
 
-Traffic Plot:
+Geolocation (optional):
+destination_IPs_geolocation.kml for Google Earth visualisation.
 
-- Saves a PNG file (all_protocols_traffic_plot.png) and shows traffic over time, with statistical thresholds.
+🌍 GeoLite2 Database
 
-Project Structure
+For IP geolocation, you need the GeoLite2-City.mmdb database.
+It is not included in this repository (due to size restrictions).
 
-Files:
+Download it free from MaxMind:
+👉 GeoLite2 Free Geolocation Data
 
-- pcap_analyser.py
+Place it in your project root folder.
 
-Main script that integrates all functionalities:
-Parses PCAP files.
-Extracts and prints emails, image URLs, and IP pairs.
-Generates and saves traffic visualizations.
+📂 Project Structure
+traffic-analysis-tool/
+│── pcap_analyser.py          # Main script
+│── pcap_parser.py            # PCAP parsing logic
+│── pcap_analysis.py          # Analysis functions
+│── find_geolocation_info.py  # IP geolocation + KML
+│── requirements.txt
+│── README.md
+│── .gitignore
+└── sample_data/
+    └── evidence-packet-analysis.pcap
 
-- pcap_parser.py
+⚙️ Customisation
 
-Handles parsing and summarising traffic data:
-Organises traffic data by protocol and summarises traffic statistics.
+Change PCAP File:
+Update PCAP_FILE in pcap_analyser.py.
 
-- pcap_analysis.py
+Adjust Visualisation Parameters:
+Modify interval_length in prepare_plot_data() (in pcap_analysis.py) to change traffic time intervals.
 
-Extracts specific information and prepares data for visualisation:
-Extracts email addresses and image URLs from TCP payloads, extracts IP pairs and counts traffic between them.
-then prepares data for plotting and generates plots.
+📜 License
 
-Customisation:
-
-- Change PCAP File: 
-Modify the pcap_file variable in main() (in pcap_analyser.py) to specify a different PCAP file.
-
-- Adjust Visualisation Parameters: 
-Update the interval_length parameter in the prepare_plot_data() function (in pcap_analysis.py) 
-to change the time intervals for traffic analysis.
+This project is licensed under the MIT License.
+See the LICENSE file for details.
