@@ -1,0 +1,22 @@
+
+digraph G {
+    concentrate = true;
+
+    rankdir = TB;
+    node [style=filled,fillcolor="#ffffff",fontcolor="#000000",fontname=Helvetica,fontsize=10];
+
+    dpkt [fillcolor="#cc3333",fontcolor="#ffffff"];
+    matplotlib [fillcolor="#a7c431"];
+    matplotlib_pyplot [fillcolor="#a6c040",label="matplotlib\.\npyplot"];
+    pcap_analyser_py [fillcolor="#569f73",label="pcap_analyser\.\npy"];
+    pcap_analysis [fillcolor="#466ca4",fontcolor="#ffffff"];
+    pcap_parser [fillcolor="#9e4cb3",fontcolor="#ffffff"];
+    dpkt -> pcap_analysis [fillcolor="#cc3333"];
+    dpkt -> pcap_parser [fillcolor="#cc3333"];
+    matplotlib -> pcap_analysis [fillcolor="#a7c431"];
+    matplotlib_pyplot -> matplotlib [fillcolor="#a6c040"];
+    matplotlib_pyplot -> pcap_analysis [fillcolor="#a6c040",minlen="2"];
+    pcap_analysis -> pcap_analyser_py [fillcolor="#466ca4",minlen="2"];
+    pcap_parser -> pcap_analyser_py [fillcolor="#9e4cb3",minlen="2"];
+}
+
