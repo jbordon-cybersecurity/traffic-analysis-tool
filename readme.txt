@@ -5,7 +5,6 @@ It extracts and summarises traffic, including email addresses, image URLs, IP pa
 It also supports IP geolocation using the GeoLite2 database.
 
 🚀 Features
-
 Parse & Summarize Traffic
 
 Reads PCAP files and organises traffic by protocol.
@@ -27,7 +26,6 @@ Uses MaxMind GeoLite2 database to map IPs.
 Exports results in .kml format for Google Earth.
 
 📦 Requirements
-
 Python 3.8+
 
 Python Packages
@@ -57,7 +55,6 @@ Step 2: Run the Main Script
 python pcap_analyser.py
 
 📊 Outputs
-
 Traffic Summary:
 By protocol (packet count, mean size, timestamps).
 
@@ -71,7 +68,6 @@ Geolocation (optional):
 destination_IPs_geolocation.kml for Google Earth visualisation.
 
 🌍 GeoLite2 Database
-
 For IP geolocation, you need the GeoLite2-City.mmdb database.
 It is not included in this repository (due to size restrictions).
 
@@ -93,14 +89,13 @@ traffic-analysis-tool/
     └── evidence-packet-analysis.pcap
 
 ⚙️ Customisation
-
 Change PCAP File:
 Update PCAP_FILE in pcap_analyser.py.
 
 Adjust Visualisation Parameters:
 Modify interval_length in prepare_plot_data() (in pcap_analysis.py) to change traffic time intervals.
 
-📜 License
+## ⚠️ License
+This repository is provided **for viewing purposes only**.  
+No permission is granted to use, copy, modify, or distribute this code without explicit approval from the author.
 
-This project is licensed under the MIT License.
-See the LICENSE file for details.
