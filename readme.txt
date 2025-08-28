@@ -53,6 +53,8 @@ If using a different file, update the PCAP_FILE variable in pcap_analyser.py.
 
 Step 2: Run the Main Script
 python pcap_analyser.py
+or
+python pcap_analyser.py --pcap ./sample_data/evidence-packet-analysis.pcap
 
 📊 Outputs
 Traffic Summary:
@@ -72,7 +74,7 @@ For IP geolocation, you need the GeoLite2-City.mmdb database.
 It is not included in this repository (due to size restrictions).
 
 Download it free from MaxMind:
-👉 GeoLite2 Free Geolocation Data
+https://dev.maxmind.com/geoip/geolite2-free-geolocation-data
 
 Place it in your project root folder.
 
